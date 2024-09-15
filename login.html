@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Siswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .social-icons a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo smk.png" alt="Logo Sekolah">
+        </div>
+        <div class="social-icons">
+            <a href="#">Instagram</a>
+        </div>
+    </header>
+    <main>
+        <h2>Login Siswa</h2>
+        <form id="loginForm">
+            <label for="id">ID Siswa:</label>
+            <input type="text" id="id" name="id" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+            <div id="errorMessage" class="error"></div>
+        </form>
+    </main>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const id = document.getElementById('id').value;
+            const password = document.getElementById('password').value;
+            
+            fetch('data_login.json')
+                .then(response => response.json())
+                .then(data => {
+                    const siswa = data.siswa;
+                    const siswaValid = siswa.some(s => s.id === id && s.password === password);
+                    
+                    if (siswaValid) {
+                        window.location.href = 'pilih jurusan.html';
+                    } else {
+                        document.getElementById('errorMessage').textContent = 'ID atau password salah. Silakan coba lagi.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Terjadi kesalahan:', error);
+                    document.getElementById('errorMessage').textContent = 'Terjadi kesalahan pada server.';
+                });
+        });
+    </script>
+</body>
+</html>

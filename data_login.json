@@ -1,0 +1,8 @@
+{
+    "siswa": [
+      { "id": "1", "password": "2" },
+      { "id": "siswa2", "password": "pass2" },
+      { "id": "siswa3", "password": "pass3" }
+    ]
+  }
+  

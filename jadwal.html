@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pelajaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .social-icons a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo smk.png" alt="Logo Sekolah">
+        </div>
+        <div class="social-icons">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </header>
+    <main>
+        <h2>Jadwal Pelajaran</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hari</th>
+                    <th>Jam 1</th>
+                    <th>Jam 2</th>
+                    <th>Jam 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Senin</td>
+                    <td id="senin-jam1">Matematika</td>
+                    <td id="senin-jam2">Bahasa Inggris</td>
+                    <td id="senin-jam3">Biologi</td>
+                </tr>
+                <tr>
+                    <td>Selasa</td>
+                    <td id="selasa-jam1">Fisika</td>
+                    <td id="selasa-jam2">Kimia</td>
+                    <td id="selasa-jam3">Ekonomi</td>
+                </tr>
+                <tr>
+                    <td>Rabu</td>
+                    <td id="rabu-jam1">Sejarah</td>
+                    <td id="rabu-jam2">Geografi</td>
+                    <td id="rabu-jam3">Penjaskes</td>
+                </tr>
+                <tr>
+                    <td>Kamis</td>
+                    <td id="kamis-jam1">Bahasa Indonesia</td>
+                    <td id="kamis-jam2">Olahraga</td>
+                    <td id="kamis-jam3">Seni Budaya</td>
+                </tr>
+                <tr>
+                    <td>Jumat</td>
+                    <td id="jumat-jam1">Pendidikan Agama</td>
+                    <td id="jumat-jam2">Bahasa Jepang</td>
+                    <td id="jumat-jam3">TIK</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        const jadwal = {
+            '10': {
+                'AKL': {
+                    'Senin': ['Matematika', 'Bahasa Inggris', 'Biologi'],
+                    'Selasa': ['Fisika', 'Kimia', 'Ekonomi'],
+                    'Rabu': ['Sejarah', 'Geografi', 'Penjaskes'],
+                    'Kamis': ['Bahasa Indonesia', 'Olahraga', 'Seni Budaya'],
+                    'Jumat': ['Pendidikan Agama', 'Bahasa Jepang', 'TIK']
+                },
+                'TKJ': {
+                    'Senin': ['Matematika', 'Bahasa Inggris', 'Biologi'],
+                    'Selasa': ['Fisika', 'Kimia', 'Ekonomi'],
+                    'Rabu': ['Sejarah', 'Geografi', 'Penjaskes'],
+                    'Kamis': ['Bahasa Indonesia', 'Olahraga', 'Seni Budaya'],
+                    'Jumat': ['Pendidikan Agama', 'Bahasa Jepang', 'TIK']
+                },
+                'MP': {
+                    'Senin': ['Matematika', 'Bahasa Inggris', 'Biologi'],
+                    'Selasa': ['Fisika', 'Kimia', 'Ekonomi'],
+                    'Rabu': ['Sejarah', 'Geografi', 'Penjaskes'],
+                    'Kamis': ['Bahasa Indonesia', 'Olahraga', 'Seni Budaya'],
+                    'Jumat': ['Pendidikan Agama', 'Bahasa Jepang', 'TIK']
+                }
+            },
+            '11': {
+                'AKL': {
+                    'Senin': ['Matematika', 'Bahasa Inggris', 'Ekonomi'],
+                    'Selasa': ['Fisika', 'Kimia', 'Biologi'],
+                    'Rabu': ['Sejarah', 'Geografi', 'Penjaskes'],
+                    'Kamis': ['Bahasa Indonesia', 'Olahraga', 'Seni Budaya'],
+                    'Jumat': ['Pendidikan Agama', 'Bahasa Jepang', 'TIK']
+                },
+                'TKJ': {
+                    'Senin': ['Matematika', 'Bahasa Inggris', 'Ekonomi'],
+                    'Selasa': ['Fisika', 'Kimia', 'Biologi'],
+                    'Rabu': ['Sejarah', 'Geografi', 'Penjaskes'],
+                    'Kamis': ['Bahasa Indonesia', 'Olahraga', 'Seni Budaya'],
+                    'Jumat': ['Pendidikan Agama', 'Bahasa Jepang', 'TIK']
+                },
+                'MP': {
+                    'Senin': ['Matematika', 'Bahasa Inggris', 'Ekonomi'],
+                    'Selasa': ['Fisika', 'Kimia', 'Biologi'],
+                    'Rabu': ['Sejarah', 'Geografi', 'Penjaskes'],
+                    'Kamis': ['Bahasa Indonesia', 'Olahraga', 'Seni Budaya'],
+                    'Jumat': ['Pendidikan Agama', 'Bahasa Jepang', 'TIK']
+                }
+            }
+        };
+
+        function updateJadwal() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tingkat = urlParams.get('tingkat');
+            const jurusan = urlParams.get('jurusan');
+            const kelas = urlParams.get('kelas');
+
+            if (tingkat && jurusan && kelas) {
+                const jadwalKelas = jadwal[tingkat][jurusan];
+                document.getElementById('senin-jam1').textContent = jadwalKelas['Senin'][0];
+                document.getElementById('senin-jam2').textContent = jadwalKelas['Senin'][1];
+                document.getElementById('senin-jam3').textContent = jadwalKelas['Senin'][2];
+                document.getElementById('selasa-jam1').textContent = jadwalKelas['Selasa'][0];
+                document.getElementById('selasa-jam2').textContent = jadwalKelas['Selasa'][1];
+                document.getElementById('selasa-jam3').textContent = jadwalKelas['Selasa'][2];
+                document.getElementById('rabu-jam1').textContent = jadwalKelas['Rabu'][0];
+                document.getElementById('rabu-jam2').textContent = jadwalKelas['Rabu'][1];
+                document.getElementById('rabu-jam3').textContent = jadwalKelas['Rabu'][2];
+                document.getElementById('kamis-jam1').textContent = jadwalKelas['Kamis'][0];
+                document.getElementById('kamis-jam2').textContent = jadwalKelas['Kamis'][1];
+                document.getElementById('kamis-jam3').textContent = jadwalKelas['Kamis'][2];
+                document.getElementById('jumat-jam1').textContent = jadwalKelas['Jumat'][0];
+                document.getElementById('jumat-jam2').textContent = jadwalKelas['Jumat'][1];
+                document.getElementById('jumat-jam3').textContent = jadwalKelas['Jumat'][2];
+            }
+        }
+
+        updateJadwal();
+    </script>
+</body>
+</html>
